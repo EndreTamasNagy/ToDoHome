@@ -1,0 +1,13 @@
+﻿@page
+@model TodoModel
+@{
+}
+@foreach (var task in Model.Tasks)
+{
+    <div class="container">
+        <h2>@task.Title</h2>
+        <div>Size:</div><select asp-items="Html.GetEnumSelectList<Sizes>()" class=""></select>
+        <div>State:</div><select asp-items="Html.GetEnumSelectList<States>()"></select>
+    </div>
+
+}
