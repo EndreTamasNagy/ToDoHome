@@ -2,12 +2,18 @@
 @model TodoModel
 @{
 }
-@foreach (var task in Model.Tasks)
-{
-    <div class="container">
-        <h2>@task.Title</h2>
-        <div>Size:</div><select asp-items="Html.GetEnumSelectList<Sizes>()" class=""></select>
-        <div>State:</div><select asp-items="Html.GetEnumSelectList<States>()"></select>
-    </div>
+<div>
+    <h2>@Model.Parent.Title</h2>
+    <div>Size:</div><select asp-items="Html.GetEnumSelectList<Sizes>()" class=""></select>
+    <div>State:</div><select asp-items="Html.GetEnumSelectList<States>()"></select>
+    @foreach (var child in Model.Parent.Children)
+    {
+        <div class="container">
+            <h2>@child.Title</h2>
+            <div>Size:</div><select asp-items="Html.GetEnumSelectList<Sizes>()" class=""></select>
+            <div>State:</div><select asp-items="Html.GetEnumSelectList<States>()"></select>
+        </div>
 
-}
+    }
+
+</div>

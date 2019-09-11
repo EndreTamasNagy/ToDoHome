@@ -10,6 +10,7 @@ namespace ToDo.Pages
     public class TodoModel : PageModel
     {
         public List<Task> Tasks { get; set; }
+        public Task Parent { get; set; }
         public void OnGet()
         {
             Tasks = new List<Task>(){
@@ -17,6 +18,7 @@ namespace ToDo.Pages
                 new Task(){Title="Planning", Size=Sizes.XL, State=States.ToStart},
                 new Task(){Title="Profit", Size=Sizes.XL, State=States.ToStart}
             };
+            Parent = new Task() { Title = "parent task", Size = Sizes.XL, State = States.ToStart, Children = Tasks };
         }
     }
 }

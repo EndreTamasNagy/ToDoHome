@@ -11,7 +11,7 @@ namespace ToDo
         public Sizes Size;
         public States State;
         public Task Parent;
-        public List<Task> Children = new List<Task>();
+        public List<Task> Children;
 
     }
 }
